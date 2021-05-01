@@ -63,7 +63,8 @@ export class ItemsService {
     otherInfo: string
   ) {
     var newItem = {
-      itemId: this.getUniqueItemId(),
+      //this.getUniqueItemId()
+      itemId: 1,
       owningUserId: userId,
       name: name,
       askingPrice: askingPrice,
