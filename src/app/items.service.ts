@@ -111,7 +111,6 @@ export class ItemsService {
   ) {
     //temp item 
     var newItem;
-    var oldItem;
     //loop through our items 
     for (var i = 0; i < this.items.length; i++) {
       //if their ids match, 
@@ -132,11 +131,10 @@ export class ItemsService {
           conditionAndAge: conditionAndAge,
           otherInfo: otherInfo
         };
-        oldItem = this.items[i];
       }
     }
     //delete the old item
-    this.deleteItem(oldItem.itemId);
+    this.deleteItem(itemId);
     //add back the changed item 
     this.createItem(newItem.userId, newItem.name, newItem.askingPrice, newItem.seller, newItem.nicheMarket, newItem.tags, newItem.description, newItem.dimensions, newItem.conditionAndAge, newItem.otherInfo);
   }
