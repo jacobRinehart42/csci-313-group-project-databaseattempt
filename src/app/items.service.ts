@@ -109,23 +109,40 @@ export class ItemsService {
     conditionAndAge: string,
     otherInfo: string
   ) {
+    //temp item 
+    var newItem;
+    var oldItem;
+    //loop through our items 
     for (var i = 0; i < this.items.length; i++) {
+      //if their ids match, 
       if (this.items[i].itemId == itemId) {
-        this.items[i].name = name;
-        this.items[i].askingPrice = askingPrice;
-        this.items[i].seller = seller;
-        this.items[i].nicheMarket = nicheMarket;
-        this.items[i].tags = tags;
-        this.items[i].description = description;
-        this.items[i].dimensions = dimensions;
-        this.items[i].conditionAndAge = conditionAndAge;
-        this.items[i].otherInfo = otherInfo;
+        //copy over the old info that cant be edited
+        //into the newItem 
+        newItem = {
+          itemId: itemId,
+          owningUserId: this.items[i].owningUserId,
+          name: name,
+          askingPrice: askingPrice,
+          underNegotiation: this.items.underNegotiation,
+          seller: seller,
+          nicheMarket: nicheMarket,
+          tags: tags,
+          description: description,
+          dimensions: dimensions,
+          conditionAndAge: conditionAndAge,
+          otherInfo: otherInfo
+        };
+        oldItem = this.items[i];
       }
     }
+    //delete the old item
+    this.deleteItem(oldItem.itemId);
+    //add back the changed item 
+    this.createItem(newItem.userId, newItem.name, newItem.askingPrice, newItem.seller, newItem.nicheMarket, newItem.tags, newItem.description, newItem.dimensions, newItem.conditionAndAge, newItem.otherInfo);
   }
 
   deleteItem(itemId: number) {
-    //temp array 
+    //temp array
     var tempArray: any[] = [];
     //loop through the items array
     for (var i = 0; i < this.items.length; i++) {
