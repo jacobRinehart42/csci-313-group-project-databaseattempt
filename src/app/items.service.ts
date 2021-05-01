@@ -123,17 +123,35 @@ export class ItemsService {
   }
 
   deleteItem(itemId: number) {
+    var tempArray: any[] = [];
     for (var i = 0; i < this.items.length; i++) {
       if (this.items[i].itemId == itemId) {
-        //removed the item from items
+        //remove the item from items
         this.items.splice(i, 1);
-        //delete from the database
+        //copy the items array to the temp array
+        for (var j = 0; j < this.items.length; j++) {
+          tempArray.push(this.items[j]);
+        }
+        //delete the entire data base
         this.http
           .delete(
             "https://nicheitems-2a49a-default-rtdb.firebaseio.com/" +
               "items.json"
           )
           .subscribe(data => (this.items = data));
+        //copy the temp array back to the database
+        for (var j = 0; j < tempArray.length; j++) {
+          var currentItem = tempArray[j];
+          this.http
+            .post(
+              "https://nicheitems-2a49a-default-rtdb.firebaseio.com/" +
+                "items.json",
+              currentItem
+            )
+            .subscribe(data => (this.items = data));
+          this.items.push(currentItem);
+        }
+        return;
       }
     }
     return;
