@@ -1,0 +1,36 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
+</head>
+
+<app-navigation *ngIf="this.routService.showDashboard"></app-navigation>
+
+<app-login *ngIf="this.routService.showLogin"></app-login>
+
+<app-create-account
+  *ngIf="this.routService.showCreateAccount"
+></app-create-account>
+
+<app-signed-in-user-info
+  *ngIf="this.routService.showSignedInUserInfo"
+></app-signed-in-user-info>
+
+<app-create-item *ngIf="this.routService.showCreateItem"></app-create-item>
+
+<app-password *ngIf="this.routService.showPassword"></app-password>
+
+<app-item *ngIf="this.routService.showItem"></app-item>
+
+<app-homepage *ngIf="this.routService.showHomepage"></app-homepage>
+
+<div *ngIf="this.routService.showMyItems">
+  <app-my-items [myItems]="theItems"></app-my-items>
+</div>
+
+<app-edit-item *ngIf="this.routService.showEditItem"></app-edit-item>
+
+

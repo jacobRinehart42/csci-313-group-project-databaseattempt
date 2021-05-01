@@ -1,0 +1,118 @@
+body {
+  font-family: "Spectral SC", serif;
+}
+.container {
+  background: url(https://cdn.dribbble.com/users/969366/screenshots/9236685/media/39f1b57fe6e92e271cb3d77d338f0b30.jpg?compress=1&resize=1600x1200)
+    no-repeat center;
+  opacity: 92%;
+  width: 600px;
+  height: 500px;
+  margin: 0;
+  position: relative;
+  margin-top: 5%;
+  box-shadow: 5px 10px 20px rgba(142, 119, 100, 0.8);
+  border-radius: 5%;
+}
+.info {
+  width: 50%;
+  margin-left: 10%;
+}
+textarea {
+  width: 500px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 65px;
+}
+.header-logo .photo {
+  display: flex;
+  justify-items: center;
+  padding: 5px 200px;
+}
+h1 {
+  background: grey;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  margin-top: 1.5rem;
+  color: #fff;
+}
+p {
+  font-size: 15px;
+  text-transform: lowercase;
+  font-weight: bold;
+  margin-left: 1px;
+  margin-top: 15px;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.container .info input {
+  position: relative;
+}
+.container .info input {
+  outline: none;
+  width: 100%;
+  padding: 1px 5px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  border: none;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+}
+.center-btns .editButton {
+  padding: 0;
+  display: block;
+  margin-right: auto;
+  border-radius: 100vh;
+  box-shadow: 5px 10px 20px rgba(142, 119, 100, 0.8);
+  width: 15%;
+  font-size: 18px;
+  background: none;
+  color: #ff652f;
+  font-weight: bold;
+  cursor: pointer;
+}
+.center-btns .saveButton {
+  display: block;
+  margin-left: 125px;
+  margin-top: -30px;
+  padding: 0;
+  width: 15%;
+  box-shadow: 5px 10px 20px rgba(142, 119, 100, 0.8);
+  border-radius: 100vh;
+  font-size: 18px;
+  background: none;
+  font-weight: bold;
+  color: #ff652f;
+  cursor: pointer;
+}
+.link-btns .editButton {
+  padding: 0;
+  width: 28%;
+  border-radius: 100vh;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ff652f;
+  cursor: pointer;
+}
+.link-btns .editButton:hover {
+  transition: 0.2s ease-in;
+  animation: shake 2.6s;
+}
+@keyframes shake {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(2px, 2px) rotate(2deg);
+  }
+  50% {
+    transform: translate(-1px, -1px) rotate(-2deg);
+  }
+  75% {
+    transform: translate(2px, -1px) rotate(-4deg);
+  }
+  100% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+}

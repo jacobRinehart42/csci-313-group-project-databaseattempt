@@ -1,0 +1,93 @@
+button {
+  padding: 15px;
+  font-size: medium;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+}
+
+button:hover {
+  background-color: darkslateblue;
+  color: white;
+}
+
+.center {
+  text-align: center;
+}
+
+h3 {
+  color: #007bff;
+}
+
+/* curvatur of boxes */
+.itemImages img {
+  border-radius: 25%;
+}
+
+.icon {
+  /* display: inline-block;
+  height: 10em;
+  width: 12em; */
+  position: relative;
+  transition: transform ease-in-out 250ms;
+}
+
+/* The view item portion covered area*/
+.icon::before,
+.icon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border-radius: 25%;
+}
+
+/* opacity and view item words  */
+.icon:hover::before {
+  content: "View Item";
+  cursor: pointer;
+  color: rgb(0, 164, 216);
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  background-color: grey;
+  opacity: 35%;
+  display: grid;
+  place-items: center;
+  font-size: 1em;
+  z-index: 10;
+  transition: background-color 100ms linear;
+}
+
+/* makes the words view item visible */
+.icon:hover::before {
+  background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+/* moves item back? */
+.item:hover .icon {
+  transform: translateY(20%) scale(1.05);
+}
+
+/* moves the item down */
+.item .icon:hover {
+  transform: translateY(-20%) scale(1.05);
+}
+
+/* pulsing effect */
+.icon:hover::after {
+  background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  z-index: 1;
+  animation: pulse 1750ms infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.96);
+    opacity: 85%;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 35%;
+  }
+}

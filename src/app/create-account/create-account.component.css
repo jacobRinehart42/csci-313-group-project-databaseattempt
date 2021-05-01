@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: url(https://cdn.dribbble.com/users/969366/screenshots/9236685/media/39f1b57fe6e92e271cb3d77d338f0b30.jpg?compress=1&resize=1600x1200)
+    no-repeat center;
+  font-family: "Spectral SC", serif;
+}
+.register {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.description p {
+  position: relative;
+  top: -30px;
+  font-weight: lighter;
+  font-size: 15px;
+  font: italic;
+}
+.form {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  padding: 75px 30px 30px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50px;
+  color: #fff;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+}
+.form .textArea {
+  position: relative;
+  width: 100%;
+}
+textarea {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 86px;
+}
+.form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(180, 173, 173, 0.1);
+  border-radius: 50px;
+  pointer-events: none;
+}
+/* .form img {
+  position: absolute;
+  top: -50px;
+  left: 138px;
+  width: 100px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 100vh;
+  opacity: 75%;
+} */
+.form h2 {
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  color: #ff652f;
+}
+.form .inputs input {
+  position: relative;
+}
+.form .inputs input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1rem;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background-color: transparent;
+  color: inherit;
+}
+.form .inputs label {
+  position: absolute;
+  left: 50px;
+  padding: 10px 0;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: 0.6s ease-out;
+}
+.form .inputs input:focus + label,
+.form .inputs input:valid + label {
+  transform: translateY(-25px);
+  font-size: 0.9rem;
+}
+
+.buttons .createButton:hover {
+  opacity: 25%;
+  transition: 0.2s ease-in;
+  animation: shake 2.2s infinite;
+}
+@keyframes shake {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(2px, 2px) rotate(2deg);
+  }
+  50% {
+    transform: translate(-1px, -1px) rotate(-2deg);
+  }
+  75% {
+    transform: translate(2px, -1px) rotate(-4deg);
+  }
+  100% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+}
+.buttons .createButton {
+  display: block;
+  padding: 0;
+  margin-left: auto;
+  border: none;
+  font-size: 1rem;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+}
+.buttons .createButton:hover {
+  opacity: 25%;
+}

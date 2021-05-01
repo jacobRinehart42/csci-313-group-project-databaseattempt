@@ -1,0 +1,24 @@
+button {
+  padding: 15px;
+  font-size: medium;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+}
+
+button:hover {
+  background-color: darkslateblue;
+  color: white;
+}
+
+.center {
+  text-align: center;
+}
+
+h3 {
+  color: #007bff;
+}
+
+.back {
+  margin-right: 10px;
+}

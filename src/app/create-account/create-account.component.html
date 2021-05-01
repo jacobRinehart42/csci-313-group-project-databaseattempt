@@ -1,0 +1,115 @@
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Spectral+SC:wght@500&display=swap"
+  rel="stylesheet"
+/>
+<html>
+  <body>
+    <div class="register">
+      <form action="" class="form">
+        <h2>Niche Register</h2>
+
+        <div class="description">
+          <p>
+            Please enter the following information to create an account. Please
+            note that items annotated by a * are required. Please note that all
+            the information you provide (asside from you username and password)
+            is public to allow users to communicate about sales.
+          </p>
+        </div>
+        <div class="inputs">
+          <input
+            type="text"
+            name="textinputnewUsername"
+            id="textinputnewUsername"
+            required
+            #username
+          />
+          <label for="textinputnewUsername">*Username:</label>
+        </div>
+
+        <div class="inputs">
+          <input
+            type="password"
+            name="textinputnewPassword"
+            id="textinputnewPassword"
+            required
+            #password
+          />
+          <label for="textinputnewPassword">*Password:</label>
+        </div>
+
+        <div class="inputs">
+          <input
+            type="text"
+            name="textinputnewUsername"
+            id="textinputnewUsername"
+            #publicName
+          />
+          <label for="textinputnewUsername">Public Name:</label>
+        </div>
+
+        <div class="inputs">
+          <input
+            type="email"
+            name="textinputnewEmail"
+            id="textinputnewUsername"
+            #email
+          />
+          <label for="textinputnewUsername">Email:</label>
+        </div>
+
+        <div class="inputs">
+          <input
+            type="tel"
+            name="textinputnewPhone"
+            id="textinputnewUsername"
+            #phoneNumber
+          />
+          <label for="textinputnewUsername">Phone Number:</label>
+        </div>
+
+        <div class="inputs">
+          <textarea
+            class="textArea"
+            #aboutYou
+            placeholder="Tell us a little about yourself"
+          ></textarea>
+        </div>
+
+        <div class="buttons">
+          <button
+            type="button"
+            class="createButton"
+            (click)="createAccount(username.value, password.value, publicName.value, email.value, phoneNumber.value, aboutYou.value)"
+          >
+            Create Account and Login
+          </button>
+        </div>
+        <table>
+          <tr *ngIf="!successfullCreation">
+            <td></td>
+            <td>
+              <div>
+                Sorry, someone has already claimed that username. Please select
+                a different username.
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="emptySpace">
+            <td></td>
+            <td>
+              <div>
+                Please fill out ALL text boxes!
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

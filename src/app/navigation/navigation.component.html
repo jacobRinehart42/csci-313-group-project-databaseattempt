@@ -1,0 +1,74 @@
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Spectral+SC:wght@500&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/e844ed806d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">
+      <h4>
+        <a class="nav-link-logo" (click)="onShowHomepage()">NICHE MARKET PLACE</a>
+      </h4>
+    </div>
+    <ul class="nav-links">
+      <div class="drop-down-menu">
+        <li><a class="nav-link4" (click)="onGoToAccount()">Account</a></li>
+        <ul></ul>
+      </div>
+      <li *ngIf="this.acctService.signedInUser.id == 0">
+        <a class="nav-link1" (click)="onCreateAccount()">Register</a>
+      </li>
+      <li *ngIf="this.acctService.signedInUser.id == 0">
+        <a class="nav-link2" (click)="navToLoginPage()">Login</a>
+      </li>
+      <li *ngIf="this.acctService.signedInUser.id != 0">
+        <a class="nav-link3" (click)="onSignout()">Sign out</a>
+      </li>
+    </ul>
+  </nav>
+</body>
+
+
+
+<!-- <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+  <div class="container-fluid">
+    <div class="row w-100">
+      <div class="col-2">
+        <button class="navbar-toggler" type="button" (click)="isShown = !isShown" >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="col-10">
+        <div class="collapse justify-content-end navbar-collapse" [ngClass]="{ 'show': isShown }">
+          <ul class="navbar-nav">
+
+            <li class="nav-item active">
+              <a class="nav-link4" (click)="onGoToAccount()" (click)="isShown = false">Account</a>
+            </li>
+            <li class="nav-item" *ngIf="this.acctService.signedInUser.id == 0">
+              <a class="nav-link1" (click)="onCreateAccount()" (click)="isShown = false">Register</a>
+            </li>
+            <li class="nav-item" *ngIf="this.acctService.signedInUser.id == 0">
+              <a class="nav-link2" (click)="navToLoginPage()" (click)="isShown = false">Login</a>
+            </li>
+            <li class="nav-item" *ngIf="this.acctService.signedInUser.id != 0">
+              <a class="nav-link3" (click)="onSignout()" (click)="isShown = false">Sign out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav> -->
+
+
+
+
+<!-- <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div> -->

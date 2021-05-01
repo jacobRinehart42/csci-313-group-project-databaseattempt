@@ -1,0 +1,92 @@
+<br>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap" rel="stylesheet">
+<div style="background: #f8f8f8;">
+  <h2 class="header-section"><span>Top Picks From Us</span></h2>
+  <div class="search-input">
+    <div class="row">
+      <div class="col-sm">
+        <input type="text" placeholder="Filter Name" [(ngModel)] = "searchName"/>
+      </div>
+      <div class="col-sm">
+        <input type="text" placeholder="Filter Description" [(ngModel)] = "searchDesc"/>
+      </div>
+      <div class="col-sm">
+        <input type="text" placeholder="Filter Condition" [(ngModel)] = "searchCond"/>
+      </div>
+      <div class="col-sm">
+        <input type="text" placeholder="Filter Price Min" [(ngModel)] = "searchPriMin"/>
+      </div>
+      <div class="col-sm">
+        <input type="text" placeholder="Filter Price Max" [(ngModel)] = "searchPriMax"/>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm">
+        <input type="text" placeholder="Filter Other Info" [(ngModel)] = "searchOther"/>
+      </div>
+      <div class="col-sm">
+        <input type="text" placeholder="Filter Dimensions" [(ngModel)] = "searchDimen"/>
+      </div>
+      <div class="col-sm">
+        <input type="text" placeholder="Filter Market" [(ngModel)] = "searchMark"/>
+      </div>
+      <div class="col-sm">
+        <input type="text" placeholder="Filter Tags" [(ngModel)] = "searchTags"/>
+      </div>
+      <div class="col-sm">
+        <input type="text" placeholder="Filter Under Negotiation" [(ngModel)] = "searchUnderNeg"/>
+      </div>
+    </div>
+
+  </div>
+
+  <body>
+    <div class="container">
+      <!-- <h2 class="header-section"><span>Top Picks From Us</span></h2> -->
+      <!-- <div class="search-input" >
+      <div class="row">
+        <div class="col-sm">
+          <input type="text" placeholder="Filter Name" [(ngModel)] = "searchString"/>
+        </div>
+        <div class="col-sm">
+          <input type="text" placeholder="Filter Name" [(ngModel)] = "searchString"/>
+        </div>
+        <div class="col-sm">
+          <input type="text" placeholder="Filter Name" [(ngModel)] = "searchString"/>
+        </div>
+        <div class="col-sm">
+          <input type="text" placeholder="Filter Name" [(ngModel)] = "searchString"/>
+        </div>
+      </div>
+      
+    </div> -->
+      <div class="itemImages">
+        <div class="item">
+          <!-- <div class="icon"><img src="https://wiki.tripwireinteractive.com/images/4/47/Placeholder.png"alt=""></div>
+        <div class="icon"><img src="https://wiki.tripwireinteractive.com/images/4/47/Placeholder.png"alt=""></div>
+        <div class="icon"><img src="https://wiki.tripwireinteractive.com/images/4/47/Placeholder.png"alt=""></div> -->
+          <div *ngFor="let item of this.itemsList">
+            <app-items *ngIf="item.name.toLowerCase().includes(searchName.toLowerCase())   &&  
+          item.description.toLowerCase().includes(searchDesc.toLowerCase()) &&
+          item.conditionAndAge.toLowerCase().includes(searchCond.toLowerCase()) &&
+          item.otherInfo.toLowerCase().includes(searchOther.toLowerCase()) &&
+          item.dimensions.toLowerCase().includes(searchDimen.toLowerCase()) && 
+          item.nicheMarket.toLowerCase().includes(searchMark.toLowerCase()) &&
+          item.tags.toLowerCase().includes(searchTags.toLowerCase())  &&
+          item.underNegotiation.toLowerCase().includes(searchUnderNeg.toLowerCase()) &&
+          comparePriceMin(item.askingPrice, searchPriMin) &&
+          comparePriceMax(item.askingPrice, searchPriMax)" [item]="item"></app-items>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+  </body>
+</div>

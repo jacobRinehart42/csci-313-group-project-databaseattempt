@@ -1,0 +1,41 @@
+<br>
+
+<div class="container" *ngFor="let myItem of this.myItems">
+    <div class="card">
+        <div class="card-body center">
+
+          <p *ngIf="negotiating == true">Item is currently being negotiated!</p>
+
+          <h3>{{ myItem.name }}</h3>  
+
+          <div>
+            <strong><em>Description:</em></strong>  {{ myItem.description }}
+            <br>
+            <strong><em>Condition:</em></strong>  {{ myItem.conditionAndAge }}
+            <br>
+            <strong><em>Asking Price:</em></strong>  {{ myItem.askingPrice }}
+            <br>
+            <strong><em>Other Information:</em></strong>  {{ myItem.otherInfo }}
+            <br>
+            <strong><em>Dimensions:</em></strong>  {{ myItem.dimensions }}
+            <br>
+            <strong><em>Niche Market:</em></strong>  {{ myItem.nicheMarket }}
+            <br>
+            <strong><em>Tags:</em></strong>  #{{ myItem.tags }}
+          </div>
+    
+          <hr />
+
+          <div>
+            <button class="editButton btn btn-primary back" type="button" (click)="showEditItem(myItem)">Edit!</button>
+            <button class="editButton btn btn-primary back" type="button" (click) = "deleteItem(myItem.itemId)">Delete</button>
+          </div>
+    
+        </div>
+    </div>
+
+  <br>
+
+</div>
+
+<br>

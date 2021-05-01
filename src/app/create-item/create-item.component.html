@@ -1,0 +1,87 @@
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Spectral+SC:wght@500&display=swap"
+  rel="stylesheet" />
+<html>
+
+<body>
+  <div class="header-name">
+    <h1>List Your Niche Item</h1>
+  </div>
+
+  <div class="pictures">
+    <label>PICTURES IF I FIGURE THEM OUT</label>
+  </div>
+
+  <div class="container">
+
+    <div class="input-name">
+      <p class="important">Item Name: *</p>
+      <input type="text" placeholder="Pokemon Cards" #Name>
+    </div>
+
+    <div class="input-tags">
+      <p> Tags: </p>
+      <input type="text" placeholder="#pokemon #cards" #Tags>
+    </div>
+
+    <div class="input-dem">
+      <p>Dimensions: </p>
+      <input type="text" placeholder="LxWxH" #Dimensions >
+    </div>
+
+    <div class="input-price">
+      <p class="important">Asking Price: *</p>
+      <input type="text" placeholder="$0.00" #Price >
+    </div>
+
+    <div class="input-forms">
+      <p class="important">Niche Market: *</p>
+      <form class="forms" id="myForm">
+        <select class="selects" id="selectCat" #Category>
+    <option>Select a Category</option>
+    <option>Art</option>
+    <option>Cards</option>
+    <option>Games</option>
+    <option>Music</option>
+    <option>Movies</option>
+    <option>Toys</option>
+  </select>
+      </form>
+
+      <p class="important">Condition: *</p>
+      <form class="forms" id="myForm">
+        <select class="selects" id="selectCare" #Condition>
+    <option>Choose a Quality</option>
+    <option>Very Poor</option>
+    <option>Poor</option>
+    <option>Alright</option>
+    <option>Almost New</option>
+    <option>Brand Spanking New</option>
+  </select>
+      </form>
+    </div>
+
+    <div class="input-desc">
+      <p class="important">Item Description: *</p>
+      <textarea class="texts" name = "text" placeholder="It's a one of a kind first edition base set booster pack with 10 cards." #Description ></textarea>
+    </div>
+
+    <div class="input-otherInfo">
+      <p>Other Information: </p>
+      <textarea class="texts" name="text" placeholder="This booster pack is not bent and has been taken care of, unlike some heathens." #Other ></textarea>
+    </div>
+
+    <div class="buttons">
+      <button type="button" class="btnCreate" (click)="createItem(Name.value, Price.value, Category.value, Tags.value, Description.value, Dimensions.value, Condition.value, Other.value)" >Create My Item!</button>
+      <button type="button" class="btnBack" (click)="switchToUser()" >Go Back!</button>
+
+    </div>
+
+    <div class="error">
+      <label *ngIf="fill == true" class="red">Please check and make sure all text boxes are filled out.</label>
+
+    </div>
+  </div>
+</body>
+
+</html>

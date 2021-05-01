@@ -1,0 +1,42 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Spectral+SC:wght@500&display=swap"
+  rel="stylesheet"
+/>
+
+<html>
+  <body>
+    <div class="login">
+      <form action="" class="form">
+        <!-- <img src="https://www.profconnects.com/img/avatar.png" alt=""> -->
+        <h1>Niche Login</h1>
+        <div class="inputs">
+          <input type="text" name="User" id="User" required #User />
+          <label for="User">User Name</label>
+        </div>
+        <div class="inputs">
+          <input type="password" name="password" id="password" required #Pass />
+          <label for="password">Password</label>
+        </div>
+        <div class="buttons">
+          <button
+            class="loginButton"
+            type="button"
+            (click)="attemptLogin(User.value, Pass.value)"
+          >
+            Login!
+          </button>
+          <button
+            class="createButton"
+            type="button"
+            (click)="switchToCAccount()"
+          >
+            Create Account!
+          </button>
+        </div>
+      </form>
+      <div class="IncorrectLogin">
+        <label id="label" *ngIf="incorrect">Incorrect Login or Password</label>
+      </div>
+    </div>
+  </body>
+</html>
