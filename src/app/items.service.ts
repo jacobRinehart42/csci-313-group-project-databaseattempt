@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { AccountService } from "./account.service";
+import { HttpClient } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
 @Injectable()
 export class ItemsService {
@@ -20,51 +22,7 @@ export class ItemsService {
 
   thisUsersItems = [];
 
-  items = [
-    {
-      itemId: 1,
-      owningUserId: 5,
-      name: "Pocket Knife",
-      askingPrice: "$45.00",
-      underNegotiation: "No",
-      seller: "Jimmy",
-      nicheMarket: "Toys",
-      tags: "Knife",
-      description: "It's a knife.",
-      dimensions: "fits in the pocket",
-      conditionAndAge: "Very Poor",
-      otherInfo: "Does bludgeoning damage."
-    },
-    {
-      itemId: 2,
-      owningUserId: 3,
-      name: "Pokemon 25th anniversary card",
-      askingPrice: "$25.00",
-      underNegotiation: "No",
-      seller: "JackAnderson",
-      nicheMarket: "Cards",
-      tags: "Pokemon",
-      description: "It's a rainbow rare Tapo-CoCo",
-      dimensions: "6.3cm by 8.8cm",
-      conditionAndAge: "Brand Spanking New",
-      otherInfo: "Love Unlisted Leaf."
-    },
-    {
-      itemId: 3,
-      owningUserId: 3,
-      name: "Halo Reach",
-      askingPrice: "$20.00",
-      underNegotiation: "No",
-      seller: "JackAnderson",
-      nicheMarket: "Games",
-      tags: "Games",
-      description: "The case isn't included! It's just the disk!",
-      dimensions: "your average xbox360 disc",
-      conditionAndAge: "Alright",
-      otherInfo:
-        "This here is one of a kind. Used to play it all the time before I had to buy cigarettes."
-    }
-  ];
+  items: any;
 
   getAllItemsForUser(id: number) {
     var theirItems = [];
@@ -104,7 +62,7 @@ export class ItemsService {
     conditionAndAge: string,
     otherInfo: string
   ) {
-    this.items.push({
+    var newItem = {
       itemId: this.getUniqueItemId(),
       owningUserId: userId,
       name: name,
@@ -117,7 +75,14 @@ export class ItemsService {
       dimensions: dimensions,
       conditionAndAge: conditionAndAge,
       otherInfo: otherInfo
-    });
+    };
+    this.http
+      .post(
+        "https://nicheitems-2a49a-default-rtdb.firebaseio.com/" + "items.json",
+        newItem
+      )
+      .subscribe(data => (this.items = data));
+    this.items.push(newItem);
   }
 
   getUniqueItemId() {
@@ -189,5 +154,20 @@ export class ItemsService {
     }
   }
 
-  constructor(private accnt: AccountService) {}
+  constructor(private accnt: AccountService, private http: HttpClient) {
+    this.http
+      .get<[]>(
+        "https://nicheitems-2a49a-default-rtdb.firebaseio.com/" + "items.json"
+      )
+      .pipe(
+        map(responseData => {
+          let itemsArray: any[] = [];
+          for (var key in responseData) {
+            itemsArray.push(responseData[key]);
+          }
+          return itemsArray;
+        })
+      )
+      .subscribe(data => (this.items = data));
+  }
 }
