@@ -20,9 +20,10 @@ export class HomepageComponent implements OnInit {
 
   constructor(private itemService: ItemsService) {}
 
-  itemsList: any = [];
+  itemsList: any = this.itemService.items;
 
   ngOnInit() {
+    this.itemService.refreshItems();
     this.itemsList = this.itemService.items;
   }
 

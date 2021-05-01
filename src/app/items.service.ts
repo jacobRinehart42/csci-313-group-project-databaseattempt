@@ -125,10 +125,23 @@ export class ItemsService {
   deleteItem(itemId: number) {
     for (var i = 0; i < this.items.length; i++) {
       if (this.items[i].itemId == itemId) {
+        //removed the item from items
         this.items.splice(i, 1);
-        return;
+        //delete the database
+        this.http.delete(
+          "https://nicheitems-2a49a-default-rtdb.firebaseio.com/" + "items.json"
+        );
+        //copy back what we want
+        for (var i = 0; i < this.items.length; i++) {
+          this.http.post(
+            "https://nicheitems-2a49a-default-rtdb.firebaseio.com/" +
+              "items.json",
+            this.items[i]
+          );
+        }
       }
     }
+    return;
   }
 
   updateNegotiationStatus(itemId: number, newStatus: string) {
