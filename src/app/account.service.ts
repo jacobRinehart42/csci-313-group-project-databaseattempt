@@ -111,7 +111,7 @@ export class AccountService {
           phoneNumber: phoneNumber,
           aboutYou: aboutYou
         };
-        this.accounts.push(newAccount);
+        //this.accounts.push(newAccount);
         this.http
           .post(
             "https://nicheaccounts-default-rtdb.firebaseio.com/" +
