@@ -45,7 +45,7 @@ export class MyItemsComponent implements OnInit {
   }
 
   deleteItem(itemId: number) {
-    this.its.deleteItem(itemId).subscribe();
+    this.its.deleteItem(itemId);
     this.its.getAllItemsForUser(this.signedInUser.id);
     this.myItems = this.its.thisUsersItems;
   }
