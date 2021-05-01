@@ -42,4 +42,14 @@ import { HttpClientModule } from "@angular/common/http";
   bootstrap: [AppComponent],
   providers: [AccountService, RoutingService, ItemsService]
 })
-export class AppModule {}
+export class AppModule {
+  // constructor(
+  //   private acctService: AccountService,
+  //   public routService: RoutingService,
+  //   private its: ItemsService
+  // ) {}
+  // ngOnInit() {
+  //   this.acctService.refreshAccounts();
+  //   this.its.refreshItems();
+  // }
+}

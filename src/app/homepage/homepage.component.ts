@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ItemsService } from '../items.service';
+import { ItemsService } from "../items.service";
 
 @Component({
   selector: "app-homepage",
@@ -18,14 +18,16 @@ export class HomepageComponent implements OnInit {
   searchTags: string = "";
   searchUnderNeg: string = "";
 
-  constructor( private itemService: ItemsService) {}
+  constructor(private itemService: ItemsService) {}
 
   itemsList: any = [];
 
-  ngOnInit() { this.itemsList = this.itemService.items ; }
+  ngOnInit() {
+    this.itemsList = this.itemService.items;
+  }
 
-  comparePriceMin(price: string, bound: string){
-    if(bound == ""){
+  comparePriceMin(price: string, bound: string) {
+    if (bound == "") {
       return true;
     }
     var pricen = parseInt(price.split("$")[1]);
@@ -33,8 +35,8 @@ export class HomepageComponent implements OnInit {
     return pricen > boundn;
   }
 
-  comparePriceMax(price: string, bound: string){
-    if(bound == ""){
+  comparePriceMax(price: string, bound: string) {
+    if (bound == "") {
       return true;
     }
     var pricen = parseInt(price.split("$")[1]);
