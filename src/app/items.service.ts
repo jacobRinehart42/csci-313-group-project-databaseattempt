@@ -88,14 +88,12 @@ export class ItemsService {
 
   getUniqueItemId() {
     var id = 1;
-    if (this.items.isArray()) {
-      for (var i = 0; i < this.items.length; i++) {
-        if (id <= this.items[i].itemId) {
-          id = this.items[i].itemId;
-        }
+    for (var i = 0; i < this.items.length; i++) {
+      if (id <= this.items[i].itemId) {
+        id = this.items[i].itemId;
       }
-      id = id + 1;
     }
+    id = id + 1;
     return id;
   }
 
@@ -153,7 +151,6 @@ export class ItemsService {
               currentItem
             )
             .subscribe(data => (this.items = data));
-          this.items.push(currentItem);
         }
         return;
       }
