@@ -19,7 +19,7 @@ export class ItemsService {
     conditionAndAge: "null",
     otherInfo: "null"
   };
-
+  
   thisUsersItems = [];
 
   items: any;
@@ -127,18 +127,10 @@ export class ItemsService {
       if (this.items[i].itemId == itemId) {
         //removed the item from items
         this.items.splice(i, 1);
-        //delete the database
-        this.http.delete(
-          "https://nicheitems-2a49a-default-rtdb.firebaseio.com/items.json/${itemId}"
+        //delete from the database
+        return this.http.delete(
+          `https://nicheitems-2a49a-default-rtdb.firebaseio.com/items.json/${this.items[i]}`,
         );
-        //copy back what we want
-        // for (var i = 0; i < this.items.length; i++) {
-        //   this.http.post(
-        //     "https://nicheitems-2a49a-default-rtdb.firebaseio.com/" +
-        //       "items.json",
-        //     this.items[i]
-        //   );
-        // }
       }
     }
     return;
