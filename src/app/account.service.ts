@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { RoutingService } from "./routing.service";
+import { HttpClient } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
 @Injectable()
 export class AccountService {
@@ -12,7 +14,7 @@ export class AccountService {
     phoneNumber: "null",
     aboutYou: "null"
   };
-//test that this is a different project entirely 
+  //test that this is a different project entirely
   accounts = [
     {
       id: 5,
@@ -172,5 +174,6 @@ export class AccountService {
     };
   }
 
-  constructor(public routService: RoutingService) {}
+  constructor(public routService: RoutingService , 
+              private http: HttpClient) {}
 }
