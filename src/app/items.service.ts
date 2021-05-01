@@ -125,8 +125,11 @@ export class ItemsService {
   }
 
   deleteItem(itemId: number) {
+    //temp array 
     var tempArray: any[] = [];
+    //loop through the items array
     for (var i = 0; i < this.items.length; i++) {
+      //if we find the item for removal
       if (this.items[i].itemId == itemId) {
         //remove the item from items
         this.items.splice(i, 1);
