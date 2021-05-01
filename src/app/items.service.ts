@@ -129,16 +129,16 @@ export class ItemsService {
         this.items.splice(i, 1);
         //delete the database
         this.http.delete(
-          "https://nicheitems-2a49a-default-rtdb.firebaseio.com/" + "items.json"
+          "https://nicheitems-2a49a-default-rtdb.firebaseio.com/items.json/${itemId}"
         );
         //copy back what we want
-        for (var i = 0; i < this.items.length; i++) {
-          this.http.post(
-            "https://nicheitems-2a49a-default-rtdb.firebaseio.com/" +
-              "items.json",
-            this.items[i]
-          );
-        }
+        // for (var i = 0; i < this.items.length; i++) {
+        //   this.http.post(
+        //     "https://nicheitems-2a49a-default-rtdb.firebaseio.com/" +
+        //       "items.json",
+        //     this.items[i]
+        //   );
+        // }
       }
     }
     return;
