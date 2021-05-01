@@ -19,7 +19,7 @@ export class ItemsService {
     conditionAndAge: "null",
     otherInfo: "null"
   };
-  
+
   thisUsersItems = [];
 
   items: any;
@@ -128,9 +128,8 @@ export class ItemsService {
         //removed the item from items
         this.items.splice(i, 1);
         //delete from the database
-        
-        return this.http.delete(
-          `https://nicheitems-2a49a-default-rtdb.firebaseio.com/items.json/${this.items[i]}`,
+        this.http.delete(
+          "https://nicheitems-2a49a-default-rtdb.firebaseio.com/" + "items.json"
         );
       }
     }
