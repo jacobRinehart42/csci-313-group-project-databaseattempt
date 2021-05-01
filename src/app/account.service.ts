@@ -57,20 +57,6 @@ export class AccountService {
   //   }
   // ];
   accounts: any;
-  // this.http
-  //   .get<[]>(
-  //     "https://nicheaccounts-default-rtdb.firebaseio.com/" + "accounts.json"
-  //   )
-  //   .pipe(
-  //     map(responseData => {
-  //       let accountsArray: any[] = [];
-  //       for (var key in responseData) {
-  //         accountsArray.push(responseData[key]);
-  //       }
-  //       this.accounts = accountsArray;
-  //       return;
-  //     })
-  //   );
 
   onSignOut() {
     this.signedInUser = {
