@@ -159,4 +159,21 @@ export class AccountService {
       )
       .subscribe(data => (this.accounts = data));
   }
+
+  refreshAccounts() {
+    this.http
+      .get<[]>(
+        "https://nicheaccounts-default-rtdb.firebaseio.com/" + "accounts.json"
+      )
+      .pipe(
+        map(responseData => {
+          let accountsArray: any[] = [];
+          for (var key in responseData) {
+            accountsArray.push(responseData[key]);
+          }
+          return accountsArray;
+        })
+      )
+      .subscribe(data => (this.accounts = data));
+  }
 }
