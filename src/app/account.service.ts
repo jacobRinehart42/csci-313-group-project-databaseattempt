@@ -195,7 +195,6 @@ export class AccountService {
           for (var key in responseData) {
             accountsArray.push(responseData[key]);
           }
-          //this.accounts = accountsArray;
           return accountsArray;
         })
       )
