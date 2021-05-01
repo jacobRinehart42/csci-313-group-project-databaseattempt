@@ -105,6 +105,7 @@ export class AccountService {
             newAccount
           )
           .subscribe(data => (this.accounts = data));
+        this.accounts.push(newAccount);
         this.login(username, password);
         this.routService.onShowHomePage();
         return true;
