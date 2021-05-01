@@ -12,7 +12,7 @@ export class AppComponent {
   name = "Angular " + VERSION.major;
 
   accounts = this.acctService.accounts;
-
+  
   items = this.its.items;
 
   theItems = this.its.thisUsersItems;
@@ -21,7 +21,9 @@ export class AppComponent {
     private acctService: AccountService,
     public routService: RoutingService,
     private its: ItemsService
-  ) {}
+  ) {
+    
+  }
 
-  ngOnInit() {}
+  ngOnInit() {  }
 }

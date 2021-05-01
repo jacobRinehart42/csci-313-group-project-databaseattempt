@@ -170,4 +170,21 @@ export class ItemsService {
       )
       .subscribe(data => (this.items = data));
   }
+
+  refreshItems() {
+    this.http
+      .get<[]>(
+        "https://nicheitems-2a49a-default-rtdb.firebaseio.com/" + "items.json"
+      )
+      .pipe(
+        map(responseData => {
+          let itemsArray: any[] = [];
+          for (var key in responseData) {
+            itemsArray.push(responseData[key]);
+          }
+          return itemsArray;
+        })
+      )
+      .subscribe(data => (this.items = data));
+  }
 }
