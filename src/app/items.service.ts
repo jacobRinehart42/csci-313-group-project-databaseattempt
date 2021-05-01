@@ -92,7 +92,8 @@ export class ItemsService {
         id = this.items[i].itemId;
       }
     }
-    return ++id;
+    id = id + 1;
+    return id;
   }
 
   editItem(
